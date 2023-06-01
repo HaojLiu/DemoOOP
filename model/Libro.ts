@@ -1,9 +1,6 @@
 class Libro
 {
     private dataCreazione : Date;
-    //titolo : string;
-    //autore : string;
-    //prezzo? : number;
 
     //Costruttori in overload
     constructor(titolo: string, autore:string);
@@ -13,8 +10,12 @@ class Libro
     constructor(public titolo: string, public autore: string, public prezzo?: number)
     {
         this.dataCreazione = new Date();
-        //this.titolo = titolo;
-        //this.autore = autore;
-        //this.prezzo = prezzo;
+    }
+
+    getInfo(): string
+    {
+        if(this.prezzo === undefined)
+            return `${this.titolo} - ${this.autore}`;
+        return `${this.titolo} - ${this.autore} - ${this.prezzo}€`
     }
 }
